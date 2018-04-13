@@ -1,4 +1,4 @@
-const { Universe, init } = window.wasmBindgen;
+const { Universe } = wasm_bindgen;
 
 const CELL_SIZE = 10;
 const GRID_COLOR = "#CCCCCC";
@@ -21,11 +21,11 @@ let fuel = 0;
 let lastRender = performance.now();
 let memory;
 
-init('../out/main_bg.wasm').then(() => {
+wasm_bindgen('../out/main_bg.wasm').then(() => {
   universe = Universe.new();
   width = universe.width();
   height = universe.height();
-  memory = window.wasmBindgen.wasm.memory;
+  memory = wasm_bindgen.wasm.memory;
 
   // Initialize the canvas with room for all of our cells and a 1px border
   // around each of them.
